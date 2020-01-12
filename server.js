@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/get', (req, res) => { getSchedule.getSchedule(req, res, db) })
+app.get('/getSchedule', (req, res) => { getSchedule.getSchedule(req, res, db) })
 
 app.listen(3000, () => {
   console.log('app is running on port 3000');
