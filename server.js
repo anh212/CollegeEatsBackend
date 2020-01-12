@@ -5,6 +5,8 @@ const knex = require('knex');
 
 const config = require('./config')
 const getSchedule = require('./controllers/schedule');
+const getLocations = require('./controllers/locations');
+
 const db = knex({
   client: 'pg',
   connection: config.config.development.database
@@ -15,7 +17,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/getSchedule', (req, res) => { getSchedule.getSchedule(req, res, db) })
+//Need to send school name and name of dining location
+app.get('/getSchedule', (req, res) => { getSchedule.getSchedule(req, res, db) });
+app.get('/getLocations', (req, res) => { getLocations.getLocations(req, res, db)});
 
 app.listen(3000, () => {
   console.log('app is running on port 3000');
