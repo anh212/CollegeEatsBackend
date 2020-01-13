@@ -1,5 +1,5 @@
 const getLocations = (req, res, db) => {
-    const {schoolName} = req.body;
+    const {schoolName} = req.params;
 
     //getting schoolID
     db.select('school_id').from('schools').where({
@@ -11,7 +11,6 @@ const getLocations = (req, res, db) => {
             db.select('dining_name', 'location_name').from('dining_locations').where({
                 school_id: schoolIDBody[0].school_id
             }).then(diningNames => {
-                console.log(diningNames);
                 if (diningNames.length) {
                     res.json(diningNames);
                 } else {
