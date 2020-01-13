@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Need to send school name and name of dining location
-app.get('/getSchedule', (req, res) => { getSchedule.getSchedule(req, res, db) });
+app.get('/getSchedule/:schoolName/:diningName', (req, res) => { getSchedule.getSchedule(req, res, db) });
 app.get('/getLocations/:schoolName', (req, res) => { getLocations.getLocations(req, res, db)});
 
 app.listen(3000, () => {
