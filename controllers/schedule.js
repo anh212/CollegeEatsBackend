@@ -1,5 +1,7 @@
 const getSchedule = (req, res, db) => {
-    const {schoolName, diningName} = req.body;
+    const {schoolName, diningName} = req.params;
+    // const {school} = req.params;
+    console.log(req.params);
 
     //getting schoolID
     db.select('school_id').from('schools').where({
