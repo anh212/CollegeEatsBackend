@@ -9,7 +9,7 @@ const getLocations = require('./controllers/locations');
 
 const db = knex({
   client: 'pg',
-  connection: config.config.development.database
+  connection: config.config.development.database2
 });
 
 const app = express();
